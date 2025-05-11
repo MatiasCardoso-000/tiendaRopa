@@ -5,7 +5,7 @@ import {
   registerRequest,
   loginRequest,
   verifyToken,
-} from "/../../../backend/api/auth.js";
+} from "../../../../backend/api/auth.js";
 import Cookies from "js-cookie";
 
 interface Params {
