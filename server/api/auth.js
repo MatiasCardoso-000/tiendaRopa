@@ -1,4 +1,4 @@
-import axios from "./api/axios";
+import axios from "./axios.js";
 
 export const registerRequest = async (user) => {
   return await axios.post("/registro", user);
@@ -8,6 +8,6 @@ export const loginRequest = async (user) => {
   return await axios.post("/login", user);
 };
 
-export const verifyToken = (token) => {
-  return axios.get("/perfil", token);
+export const verifyToken = async (token) => {
+  return await axios.get("/verify");
 };

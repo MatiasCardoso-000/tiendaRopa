@@ -45,9 +45,12 @@ export const login = async (req, res) => {
   try {
     if (!userFound) {
       res.status(400).json({ message: ["Usuario o contraseña incorrectos"] });
+      return;
     }
 
-    const comparePassword = await bcrypt.compare(password, userFound.password);
+    const comparePassword =
+      userFound.password &&
+      (await bcrypt.compare(password, userFound.password));
 
     if (!comparePassword) {
       res.status(400).json({
@@ -63,41 +66,30 @@ export const login = async (req, res) => {
       email: userFound.email,
       role: userFound.role,
     });
-    console.log(`Haz ingresado a la cuenta con exito ${userFound.username}`);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
-export const verifyToken = async (req, res, next) => {
+export const verifyToken = async (req, res) => {
   const { token } = req.cookies;
 
   if (!token) {
-    console.log("No se puede acceder al perfil del usuairo");
-    return res.status(400).json({ message: "No token, authorization denied" });
+    return res.status(401).json({ message: "No token, authorization denied" });
   }
 
-  try {
-    jwt.verify(token, JWT_SECRET, async (err, decoded) => {
-      if (err) return res.status(401).json({ message: "Unauthorized" });
+  jwt.verify(token, JWT_SECRET, async (err, decoded) => {
+    if (err) return res.status(401).json({ message: "Unauthorized" });
 
-      const userID = decoded.id;
+    const userID = decoded.id;
 
-      const userFound = await User.findById(userID);
+    const userFound = await User.findById(userID);
 
-      if (!userFound) {
-        res.status(401).json({ message: "Unauthorized" });
-      }
-
-      res.json({
-        username: userFound.username,
-        email: userFound.email,
-        role: userFound.role,
-      });
-    });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
+    if (!userFound) {
+      res.status(401).json({ message: "Unauthorized" });
+    }
+    res.json(userFound)
+  });
 };
 
 export const logout = (req, res) => {

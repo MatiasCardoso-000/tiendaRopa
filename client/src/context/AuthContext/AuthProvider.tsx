@@ -5,7 +5,7 @@ import {
   registerRequest,
   loginRequest,
   verifyToken,
-} from "../../../../backend/auth.js";
+} from "../../../../server/api/auth.js";
 import Cookies from "js-cookie";
 
 interface Params {
@@ -14,40 +14,44 @@ interface Params {
 
 export const AuthProvider = ({ children }: Params) => {
   const [user, setUser] = useState<User>({} as User);
-  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const signUp = async (user: User) => {
+  const signUp = async (user: User):Promise<void> => {
     try {
       const res = await registerRequest(user);
 
       if (res.status !== 200) {
-        throw new Error("ERROR EN LA PETICION DE USUARIO");
-      }
-
-      setUser(user);
-      setLoading(false);
-    } catch (error: any) {
-      setErrors(error.response.data.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const signIn = async (user: User) => {
-    try {
-      const res = await loginRequest(user);
-
-      if (res.status !== 200) {
-        throw new Error("ERROR EN LA PETICION DE USUARIO");
+        throw new Error("Hubo un error al registrarse");
       }
 
       setUser(res.data);
     } catch (error: any) {
+      setErrors(error.response.data.message);
+    } 
+  };
+
+  const signIn = async (user: User):Promise<void> => {
+    try {
+      const res = await loginRequest(user);
+
+      if (res.status !== 200) {
+        throw new Error("Hubo un error al iniciar sesion");
+      }
+
+      setUser(res.data);
+      setIsAuthenticated(true)
+    } catch (error: any) {
       console.error(error);
       setErrors(error.response.data.message);
     }
+  };
+
+  const logout = () => {
+    Cookies.remove("token");
+    setUser({} as User);
+    setIsAuthenticated(false)
   };
 
   useEffect(() => {
@@ -75,8 +79,8 @@ export const AuthProvider = ({ children }: Params) => {
       } catch (error: any) {
         setIsAuthenticated(false);
         setUser({} as User);
-        setErrors(error.response.data.message);
         setLoading(false);
+        setErrors(error.response.data.message);
       }
     };
 
@@ -85,7 +89,7 @@ export const AuthProvider = ({ children }: Params) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, loading, errors, isAuthenticated, signUp, signIn }}
+      value={{ user, loading, errors, isAuthenticated, signUp, signIn,logout }}
     >
       {children}
     </AuthContext.Provider>

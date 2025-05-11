@@ -23,7 +23,6 @@ export const AppRouter = () => {
             }
           >
             <Route path="/perfil" element={<UserProfilePage />} />
-            
           </Route>
 
           <Route path="/" element={<HomePage />} />

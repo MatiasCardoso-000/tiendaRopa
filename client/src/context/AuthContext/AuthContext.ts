@@ -8,6 +8,7 @@ interface AuthContextType {
   isAuthenticated:boolean,
   signUp: (user: User) => void;
   signIn: (user:User) => void
+  logout: () => void
 }
 
 export const AuthContext = createContext<AuthContextType>({
@@ -17,4 +18,5 @@ export const AuthContext = createContext<AuthContextType>({
   isAuthenticated:false,
   signUp: (user: User) => user,
   signIn: (user: User) => user,
+  logout: () => {}
 });
