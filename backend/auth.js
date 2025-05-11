@@ -1,4 +1,4 @@
-import axios from "./axios";
+import axios from "./API/axios";
 
 export const registerRequest = async (user) => {
   return await axios.post("/registro", user);
