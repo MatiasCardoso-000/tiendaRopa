@@ -1,13 +1,15 @@
 import { Button } from "../Button/Button";
+import { MouseEventHandler } from "react";
 
-interface Params { 
-  widthValue : string
+interface Params {
+  widthValue: string;
+  onClick: MouseEventHandler;
 }
 
-export const FavIcon = ({widthValue}:Params) => {
+export const FavoriteIconCard = ({ widthValue, onClick }: Params) => {
   return (
     <div>
-      <Button className="w-[30px] cursor-pointer">
+      <Button className="w-[30px] cursor-pointer" onClick={onClick}>
         {" "}
         <img
           className={`w-[${widthValue}px]`}

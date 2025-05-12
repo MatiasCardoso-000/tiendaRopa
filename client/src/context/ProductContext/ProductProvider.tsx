@@ -9,6 +9,7 @@ interface Params {
 
 export const ProductProvider = ({ children }: Params) => {
   const [products, setProduct] = useState<Product[]>([]);
+  const [favoriteProduct, setFavoriteProduct] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
@@ -28,8 +29,11 @@ export const ProductProvider = ({ children }: Params) => {
     getProducts();
   }, [data]);
 
+
+
+
   return (
-    <ProductContext.Provider value={{ products, loading }}>
+    <ProductContext.Provider value={{ products, favoriteProduct,setFavoriteProduct, loading }}>
       {children}
     </ProductContext.Provider>
   );
