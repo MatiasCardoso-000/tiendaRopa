@@ -10,6 +10,7 @@ interface Params {
 export const ProductProvider = ({ children }: Params) => {
   const [products, setProduct] = useState<Product[]>([]);
   const [favoriteProduct, setFavoriteProduct] = useState<Product[]>([]);
+  const [randomProduct, setRandomProduct] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
@@ -17,6 +18,13 @@ export const ProductProvider = ({ children }: Params) => {
   const URL = `${BACKEND_URL}/products`;
 
   const { data } = useFetch<Product[]>(URL);
+
+  useEffect(() => {
+    const copiedProducts = [...products];
+    const sortedProducts = copiedProducts.sort(() => Math.random() - 0.5);
+    const slicedProducts = sortedProducts.slice(0, 8);
+    setRandomProduct(slicedProducts);
+  }, [products]);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -29,11 +37,10 @@ export const ProductProvider = ({ children }: Params) => {
     getProducts();
   }, [data]);
 
-
-
-
   return (
-    <ProductContext.Provider value={{ products, favoriteProduct,setFavoriteProduct, loading }}>
+    <ProductContext.Provider
+      value={{ products, favoriteProduct,randomProduct, setFavoriteProduct, loading }}
+    >
       {children}
     </ProductContext.Provider>
   );

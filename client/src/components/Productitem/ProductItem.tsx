@@ -8,12 +8,13 @@ interface Params {
 }
 
 export const ProductItem = ({ product }: Params) => {
+  const { setFavoriteProduct, favoriteProduct } = useProducts();
 
-  const{setFavoriteProduct} = useProducts()
-
-  const saveFavoriteProduct = (product:Product) => {
-    setFavoriteProduct((prevState)=> [...prevState, product])
-  }
+  const saveFavoriteProduct = (product: Product) => {
+    if (!favoriteProduct.includes(product)) {
+      setFavoriteProduct((prevState) => [...prevState, product]);
+    }
+  };
 
   return (
     <div
@@ -21,12 +22,19 @@ export const ProductItem = ({ product }: Params) => {
       key={product.id}
     >
       <h3 className="truncate w-3/4 font-semibold">{product.title}</h3>
-      <img src={product.image} alt={product.title} className="w-1/4 h-1/4 object-cover" />
+      <img
+        src={product.image}
+        alt={product.title}
+        className="w-1/4 h-1/4 object-cover"
+      />
       <span>$ {product.price}</span>
 
       <div className="flex items-center  gap-4">
-        <FavoriteIconCard widthValue="10" onClick={() => saveFavoriteProduct(product)}/>
-        <Button className="bg-zinc-800 text-zinc-50 p-2 text-[12px] cursor-pointer hover:bg-zinc-700" >
+        <FavoriteIconCard
+          widthValue="10"
+          onClick={() => saveFavoriteProduct(product)}
+        />
+        <Button className="bg-zinc-800 text-zinc-50 p-2 text-[12px] cursor-pointer hover:bg-zinc-700">
           Agregar al carrito
         </Button>
       </div>

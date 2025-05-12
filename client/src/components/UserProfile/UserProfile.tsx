@@ -13,11 +13,17 @@ export const UserProfile = () => {
           Tus favoritos
         </h1>
         <div className="w-full md:w-1/2 grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] justify-center items-center gap-2 ">
-          {favoriteProduct.map((product) => (
-            <div>
-              <ProductItem product={product} />
-            </div>
-          ))}
+          {favoriteProduct.length > 0 ? (
+            favoriteProduct.map((product) => (
+              <div>
+                <ProductItem product={product} />
+              </div>
+            ))
+          ) : (
+            <p className="text-center text-2xl font-semibold text-gray-500 mt-32">
+              No tienes productos favoritos
+            </p>
+          )}
         </div>
       </section>
     </div>

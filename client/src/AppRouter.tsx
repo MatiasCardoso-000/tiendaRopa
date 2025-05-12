@@ -5,14 +5,13 @@ import { UserProfilePage } from "./pages/UserProfilePage/UserProfilePage";
 import { ProtectedRoutes } from "./components/ProtectedRoutes/ProtectedRoutes";
 import { useAuth } from "./hooks/useAuth";
 import { HomePage } from "./pages/HomePage/HomePage";
-import { FavoriteProductPage } from "./pages/FavoriteProductPage/FavoriteProductPage";
 
 export const AppRouter = () => {
   const { isAuthenticated } = useAuth();
   console.log(isAuthenticated);
   
   return (
-    <main className="min-h-screen flex flex-col w-full items-center  gap-40">
+    <main className="min-h-screen flex flex-col w-full items-center  py-4 gap-20">
       <Router>
         <Routes>
           <Route
@@ -24,7 +23,6 @@ export const AppRouter = () => {
             }
           >
             <Route path="/perfil" element={<UserProfilePage />} />
-            <Route path="/favoritos" element={<FavoriteProductPage />} />
           </Route>
 
           <Route path="/" element={<HomePage />} />

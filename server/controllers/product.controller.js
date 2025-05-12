@@ -29,8 +29,24 @@ export const getProducts = async (req, res) => {
   try {
     if (products.length === 0) throw new Error("Products are not available");
 
-     res.json(products);
+    res.json(products);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
+};
+
+export const getProductByName = async (req, res) => {
+  const title = req.query.q;
+
+  const products = await Product.find();
+
+
+  if (!products) {
+    return res.status(404).json({ message: "Product not found" });
+  }
+
+  const searchPrefix = products.filter((p) => p.title.toLocaleLowerCase().includes(title.toLocaleLowerCase()))
+
+  
+  res.json(searchPrefix)
 };
