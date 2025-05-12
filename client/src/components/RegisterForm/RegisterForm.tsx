@@ -22,9 +22,7 @@ export const RegisterForm = () => {
   return (
     <div className="w-full flex flex-col items-center gap-2 m-auto">
       {RegisterErrors.map((error, i) => (
-        <p key={i} className="bg-red-400 text-white p-2">
-          {error}
-        </p>
+        <ErrorMessage key={i} className="bg-red-400 text-white p-2" text={error}/>
       ))}
       <form
         onSubmit={onSubmit}

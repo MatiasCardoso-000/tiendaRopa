@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }: Params) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  const signUp = async (user: User):Promise<void> => {
+  const signUp = async (user: User): Promise<void> => {
     try {
       const res = await registerRequest(user);
 
@@ -29,10 +29,10 @@ export const AuthProvider = ({ children }: Params) => {
       setUser(res.data);
     } catch (error: any) {
       setErrors(error.response.data.message);
-    } 
+    }
   };
 
-  const signIn = async (user: User):Promise<void> => {
+  const signIn = async (user: User): Promise<void> => {
     try {
       const res = await loginRequest(user);
 
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }: Params) => {
       }
 
       setUser(res.data);
-      setIsAuthenticated(true)
+      setIsAuthenticated(true);
     } catch (error: any) {
       console.error(error);
       setErrors(error.response.data.message);
@@ -51,7 +51,7 @@ export const AuthProvider = ({ children }: Params) => {
   const logout = () => {
     Cookies.remove("token");
     setUser({} as User);
-    setIsAuthenticated(false)
+    setIsAuthenticated(false);
   };
 
   useEffect(() => {
@@ -87,9 +87,16 @@ export const AuthProvider = ({ children }: Params) => {
     checkLogin();
   }, [isAuthenticated]);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setErrors([]);
+    }, 3000);
+    return () => clearTimeout(timer);
+  });
+
   return (
     <AuthContext.Provider
-      value={{ user, loading, errors, isAuthenticated, signUp, signIn,logout }}
+      value={{ user, loading, errors, isAuthenticated, signUp, signIn, logout }}
     >
       {children}
     </AuthContext.Provider>
