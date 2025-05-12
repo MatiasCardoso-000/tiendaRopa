@@ -7,15 +7,6 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
-    "baseUrl": "./src",
-    "paths": {
-      "@/*": ["./*"],
-      "@backend/*": ["../../backend/*"]},
-
-      "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
-
-
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
