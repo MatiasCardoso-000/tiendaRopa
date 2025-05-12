@@ -1,8 +1,12 @@
 import { useForm } from "react-hook-form";
 import type { User } from "../../types/user.interface";
 import { useAuth } from "../../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { Input } from "../Input/Input";
+import { Button } from "../Button/Button";
+import { Label } from "../Label/Label";
+import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
 
 export const LoginForm = () => {
   const {
@@ -23,11 +27,13 @@ export const LoginForm = () => {
   }, [isAuthenticated, navigate]);
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="w-full flex flex-col items-center m-auto">
       {LoginErrors.map((error, i) => (
-        <p key={i} className="text-center bg-red-400 text-white p-2 rounded">
-          {error}
-        </p>
+        <ErrorMessage
+          key={i}
+          className="text-center bg-red-400 text-white p-2 rounded"
+          text={error}
+        />
       ))}
 
       <form
@@ -35,38 +41,52 @@ export const LoginForm = () => {
         className="w-full h-5/6 md:h-[600px] flex flex-col gap-4 p-4 items-center justify-center"
       >
         <div className="w-full md:w-1/3 flex flex-col gap-2">
-          <label htmlFor="username" className="font-medium">
+          <Label htmlFor="username" className="font-medium">
             Nombre de usuario
-          </label>
-          <input
-            {...register("username", { required: true })}
+          </Label>
+          <Input
             type="text"
             id="username"
             className="w-full border border-slate-200 p-2 rounded focus:outline-none focus:ring-2 focus:ring-zinc-800"
+            register={{ ...register("username", { required: true }) }}
           />
           {errors.username && (
-            <p className="text-red-500 text-sm">Nombre de usuario requerido</p>
+            <ErrorMessage
+              text="Nombre de usuario requerido"
+              className="text-red-500 text-sm"
+            />
           )}
         </div>
 
         <div className="w-full md:w-1/3 flex flex-col gap-2">
-          <label htmlFor="password" className="font-medium">
+          <Label htmlFor="password" className="font-medium">
             Contraseña
-          </label>
-          <input
-            {...register("password", { required: true })}
+          </Label>
+          <Input
             type="password"
             id="password"
             className="w-full border border-slate-200 p-2 rounded focus:outline-none focus:ring-2 focus:ring-zinc-800"
+            register={{ ...register("password", { required: true }) }}
           />
           {errors.password && (
-            <p className="text-red-500 text-sm">Contraseña requerida</p>
+            <ErrorMessage
+              text="Contraseña requerida"
+              className="text-red-500 text-sm"
+            />
           )}
         </div>
 
-        <button className="w-full md:w-1/3 bg-zinc-800 text-slate-50 font-semibold p-2 hover:bg-slate-600 cursor-pointer mt-12 rounded transition-colors">
+        <Button className="w-full md:w-1/3 bg-zinc-800 text-slate-50 font-semibold p-2 hover:bg-slate-600 cursor-pointer mt-12 rounded transition-colors">
           Ingresar
-        </button>
+        </Button>
+        <div className="w-1/3 text-right">
+          <p>No tenes una cuenta?</p>{" "}
+          <Link to="/registro">
+            <span className="font-semibold hover:underline cursor-pointer">
+              Registrarse
+            </span>
+          </Link>
+        </div>
       </form>
     </div>
   );

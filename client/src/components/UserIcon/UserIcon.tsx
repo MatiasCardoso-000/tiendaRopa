@@ -1,12 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "../Button/Button";
+import { useAuth } from "../../hooks/useAuth";
 
 export const UserIcon = () => {
- const navigate =  useNavigate()
+  const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/login')
-  }
+    if (!isAuthenticated) {
+      navigate("/login");
+    }
+    navigate("/perfil");
+  };
 
   return (
     <div>
