@@ -7,7 +7,7 @@ interface Params {
   product: Product;
 }
 
-export const ProductItem = ({ product }: Params) => {
+export const ProductItem = ({ product}: Params) => {
   const { setFavoriteProduct, favoriteProduct } = useProducts();
 
   const saveFavoriteProduct = (product: Product) => {
@@ -34,7 +34,7 @@ export const ProductItem = ({ product }: Params) => {
           widthValue="10"
           onClick={() => saveFavoriteProduct(product)}
         />
-        <Button className="bg-zinc-800 text-zinc-50 p-2 text-[12px] cursor-pointer hover:bg-zinc-700">
+        <Button className="bg-zinc-700 text-zinc-50 p-2 text-[12px] cursor-pointer hover:bg-zinc-600">
           Agregar al carrito
         </Button>
       </div>

@@ -1,9 +1,11 @@
-interface Params {
-  children: React.ReactNode;
-}
+import { AppRouter } from "./AppRouter";
 
-export const App = ({ children }: Params) => {
-  return <>{children}</>;
+export const App = () => {
+  return (
+    <main className="min-h-screen flex flex-col w-full items-center  gap-20">
+      <AppRouter />
+    </main>
+  );
 };
 
 export default App;

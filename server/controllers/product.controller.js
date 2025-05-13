@@ -8,7 +8,7 @@ export const createProduct = async (req, res) => {
   }
 
   try {
-    const product = await new Product({
+    const product = await Product.create({
       title,
       price,
       description,
@@ -16,9 +16,7 @@ export const createProduct = async (req, res) => {
       category,
     });
 
-    const savedProduct = await product.save();
-
-    res.json(savedProduct);
+    res.json(product);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -40,13 +38,24 @@ export const getProductByName = async (req, res) => {
 
   const products = await Product.find();
 
-
   if (!products) {
     return res.status(404).json({ message: "Product not found" });
   }
 
-  const searchPrefix = products.filter((p) => p.title.toLocaleLowerCase().includes(title.toLocaleLowerCase()))
+  const searchPrefix = products.filter((p) =>
+    p.title.toLocaleLowerCase().includes(title.toLocaleLowerCase())
+  );
 
-  
-  res.json(searchPrefix)
+  res.json(searchPrefix);
 };
+
+// export const insetManyProducts = async (req, res) => {
+//   const { products } = req.body;
+
+//   try {
+//     const result = await Products.insertMany(products);
+//     res.json(result);
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// };
