@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [react(),tailwindcss()],
   resolve: {
     alias: {
-      '@server': path.resolve(__dirname, '../server/api')
+      '@server': path.resolve(__dirname, '../server/auth')
     }
   }
 })
