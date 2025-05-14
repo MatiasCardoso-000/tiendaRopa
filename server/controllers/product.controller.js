@@ -27,7 +27,7 @@ export const getProducts = async (req, res) => {
   try {
     if (products.length === 0) throw new Error("Products are not available");
 
-    res.json(products);
+  return  res.json(products);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -49,13 +49,3 @@ export const getProductByName = async (req, res) => {
   res.json(searchPrefix);
 };
 
-// export const insetManyProducts = async (req, res) => {
-//   const { products } = req.body;
-
-//   try {
-//     const result = await Products.insertMany(products);
-//     res.json(result);
-//   } catch (error) {
-//     res.status(500).json({ message: error.message });
-//   }
-// };
