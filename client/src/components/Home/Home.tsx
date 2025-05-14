@@ -10,21 +10,21 @@ export const Home = () => {
   const { products } = useProducts();
   const [valueInput, setValue] = useState("");
 
-  const handleOnChange = (e) => {
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setValue(value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
 
   const filteredProducts = filterProducts(products, valueInput);
 
   return (
-    <>
+    <main className="w-full grid-cols-1 grid">
       <Header />
-      <section className="px-4">
+      <section className="w-full flex flex-col items-center  gap-8 mt-20 p-2 md:px-4">
         <form className="w-full text-center" onSubmit={handleSubmit}>
           <Input
             type="text"
@@ -41,6 +41,6 @@ export const Home = () => {
       </section>
 
       <Footer />
-    </>
+    </main>
   );
 };

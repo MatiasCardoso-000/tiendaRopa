@@ -12,19 +12,19 @@ export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
   const { products, randomProduct, loading, searchQuery } = useProducts();
 
   return (
-    <div className="flex flex-col w-full gap-2">
+    <div className="w-full flex flex-col gap-8">
       {!loading ? (
         <>
           {searchQuery && <h2>Resultado para: {searchQuery}</h2>}
-          <div className="flex flex-col gap-14">
+          <div className="w-full flex flex-col gap-14">
             {valueInput && (
               <div className="flex flex-col gap-8">
-                <h1 className=" text-2xl  w-3/4 ml-14">
+                <h1 className="w-full md:text-2xl  md:w-max md:ml-14 text-center md:text-left">
                   Resultado busqueda:{" "}
                   <span className="font-semibold">{valueInput}</span>
                 </h1>
 
-                <section className="w-full md:w-3/4  grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] justify-center items-center gap-4 m-auto ">
+                <section className="w-full md:w-3/4  grid grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] justify-center items-center gap-2 md:gap-4 m-auto ">
                   {filteredProducts.map((product) => (
                     <ProductItem product={product} />
                   ))}
@@ -32,21 +32,21 @@ export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
               </div>
             )}
 
-            <h1 className="text-2xl w-3/4 ml-14">
+            <h1 className="w-full md:text-2xl md:w-max md:ml-14 md:text-left text-center font-semibold">
               Algunos de nuestros productos ...
             </h1>
-            <section className="w-full md:w-3/4  grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] justify-center items-center gap-4 m-auto mb-14">
+            <section className="w-full md:w-3/4  grid grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] justify-center items-center gap-2 md:gap-4 m-auto mb-14">
               {randomProduct.map((product) => (
                 <ProductItem product={product} />
               ))}
             </section>
           </div>
-          <div className="flex flex-col gap-14">
-            <h1 className="text-2xl  w-3/4 ml-14">
+          <div className="w-full flex flex-col gap-14">
+            <h1 className="text-xl  w-full text-center md:text-left md:w-max md:text-2xl md:ml-14 font-semibold ">
               Camisas con botones para hombres
             </h1>
             <div className="flex flex-col text-right gap-8">
-              <section className="w-full md:w-4/5  grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] justify-center items-center gap-4 m-auto">
+              <section className="w-full md:w-4/5  grid  grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] justify-center items-center gap-2 md:gap-4 m-auto">
                 {products
                   .slice(1, -5)
                   .map((product) =>
@@ -57,11 +57,11 @@ export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
                     )
                   )}
               </section>
-              <div className="w-10/12 ml-10">
+              <div className="w-full">
                 <p>
                   Ver más{" "}
                   <Link to={`/camisas-con-botones-para-hombres`}>
-                    <span className="font-semibold hover:underline">
+                    <span className="font-semibold hover:underline mr-10 md:mr-52">
                       Camisas con botones para hombres
                     </span>
                   </Link>
@@ -70,10 +70,12 @@ export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-14">
-            <h1 className="text-2xl  w-3/4 ml-14">Pantalones Hombre</h1>
-            <div className="flex flex-col text-right gap-8">
-              <section className="w-full md:w-4/5  grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] justify-center items-center gap-4 m-auto">
+          <div className="w-full flex flex-col gap-4 md:gap-14">
+            <h1 className="text-xl  w-full md:w-3/4 md:text-2xl ml-14 font-semibold">
+              Pantalones Hombre
+            </h1>
+            <div className="w-full flex flex-col text-right gap-8">
+              <section className="w-full md:w-4/5  grid grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] justify-center items-center gap-2 md:gap-4 m-auto">
                 {products
                   .slice(1, -5)
                   .map((product) =>
@@ -85,11 +87,11 @@ export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
                     )
                   )}
               </section>
-              <div className="w-10/12 ml-10">
+              <div className="w-full">
                 <p>
                   Ver más{" "}
                   <Link to={`/pantalones-para-hombres`}>
-                    <span className="font-semibold hover:underline">
+                    <span className="font-semibold hover:underline mr-10 md:mr-52">
                       Pantalones hombres
                     </span>
                   </Link>

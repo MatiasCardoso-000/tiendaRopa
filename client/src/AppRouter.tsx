@@ -10,21 +10,21 @@ export const AppRouter = () => {
   const { isAuthenticated } = useAuth();
 
   return (
-    <Routes>
-      <Route
-        element={
-          <ProtectedRoutes
-            redirectTo={"/login"}
-            isAuthenticated={isAuthenticated}
-          />
-        }
-      >
-        <Route path="/perfil" element={<UserProfilePage />} />
-      </Route>
+      <Routes>
+        <Route
+          element={
+            <ProtectedRoutes
+              redirectTo={"/login"}
+              isAuthenticated={isAuthenticated}
+            />
+          }
+        >
+          <Route path="/perfil" element={<UserProfilePage />} />
+        </Route>
 
-      <Route path="/" element={<HomePage />} />
-      <Route path="/registro" element={<RegisterPage />} />
-      <Route path="/login" element={<LoginPage />} />
-    </Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/registro" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
   );
 };

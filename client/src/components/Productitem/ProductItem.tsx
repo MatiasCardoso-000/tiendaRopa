@@ -18,7 +18,7 @@ export const ProductItem = ({ product}: Params) => {
 
   return (
     <div
-      className="w-full md:w-[200px] h-[350px] flex flex-col items-center justify-around  border border-slate-100 m-auto shadow"
+      className="w-4/4 h-[280px] md:w-[200px] md:h-[350px] flex flex-col items-center justify-around  border border-slate-100 m-auto shadow p-2"
       key={product.id}
     >
       <h3 className="truncate w-3/4 font-semibold">{product.title}</h3>
@@ -29,12 +29,12 @@ export const ProductItem = ({ product}: Params) => {
       />
       <span>$ {product.price}</span>
 
-      <div className="flex items-center  gap-4">
+      <div className="flex items-center gap-4">
         <FavoriteIconCard
           widthValue="10"
           onClick={() => saveFavoriteProduct(product)}
         />
-        <Button className="bg-zinc-700 text-zinc-50 p-2 text-[12px] cursor-pointer hover:bg-zinc-600">
+        <Button className="bg-zinc-700 text-zinc-50  text-[12px] md:p-2 cursor-pointer hover:bg-zinc-600">
           Agregar al carrito
         </Button>
       </div>
