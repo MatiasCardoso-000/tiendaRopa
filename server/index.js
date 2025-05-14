@@ -16,15 +16,13 @@ app.use(
       "https://tiendaropa-production-3d40.up.railway.app/login",
       "https://tiendaropa-production-3d40.up.railway.app/registro",
     ],
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
 app.use(cookieParser());
 
 app.use("/api", productsRoutes);
-app.use("/api/auth", userRoutes);
+app.use("/auth", userRoutes);
 
 startServer();
 connectDB();
