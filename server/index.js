@@ -16,6 +16,8 @@ app.use(
       "https://tiendaropa-production-3d40.up.railway.app/login",
       "https://tiendaropa-production-3d40.up.railway.app/registro",
     ],
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
