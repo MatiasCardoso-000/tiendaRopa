@@ -25,9 +25,10 @@ export const createProduct = async (req, res) => {
 export const getProducts = async (req, res) => {
   const products = await Product.find();
   try {
-    if (products.length === 0) throw new Error("Products are not available");
+    if (products.length === 0) return res.json([])
 
   return  res.json(products);
+  
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
