@@ -9,7 +9,8 @@ import cors from 'cors'
 export const app = express();
 app.use(express.json());
 app.use(cors({
-  origin:"http://localhost:5173",
+  origin:["http://localhost:5173", "https://tiendaropa-production-3d40.up.railway.app/registro","https://tiendaropa-production-3d40.up.railway.app/login","https://tiendaropa-production-3d40.up.railway.app/"],
+
   credentials:true
 }))
 app.use(cookieParser())
