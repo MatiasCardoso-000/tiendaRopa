@@ -3,7 +3,6 @@ import { Product } from "../../types/product.interface";
 
 interface ProductContextType { 
   products : Product[],
-  searchQuery:string,
   favoriteProduct: Product[],
   randomProduct: Product[],
   setFavoriteProduct: React.Dispatch<React.SetStateAction<Product[]>>,
@@ -13,7 +12,6 @@ interface ProductContextType {
 
 export const ProductContext = createContext<ProductContextType>({
   products: [],
-  searchQuery: "",
   favoriteProduct: [],
   randomProduct: [],
   setFavoriteProduct: () => {},
