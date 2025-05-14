@@ -22,7 +22,7 @@ app.use(
 app.use(cookieParser());
 
 app.use("/api", productsRoutes);
-app.use("/auth", userRoutes);
+app.use("/api/auth", userRoutes);
 
 startServer();
 connectDB();
