@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }: Params) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  const signUp = async (user: User): Promise<void> => {
+  const signUp = async (user: User) => {
     try {
       const res = await registerRequest(user);
 
@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }: Params) => {
     }
   };
 
-  const signIn = async (user: User): Promise<void> => {
+  const signIn = async (user: User) => {
     try {
       const res = await loginRequest(user);
 
