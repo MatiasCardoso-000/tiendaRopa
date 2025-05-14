@@ -12,7 +12,7 @@ export const LogoutIcon = () => {
     <div>
       <Button className="w-[30px] cursor-pointer" onClick={handleClick}>
         <img
-          src="../../../public/iconos/icons8-apagar-50.png"
+          src="../../../iconos/icons8-apagar-50.png"
           alt="logout icon"
         />
       </Button>
