@@ -13,7 +13,7 @@ export const FavoriteIconCard = ({ widthValue, onClick }: Params) => {
         {" "}
         <img
           className={`w-[${widthValue}px]`}
-          src="../../../public/iconos/icons8-favorito-24.png"
+          src="../../../iconos/icons8-favorito-24.png"
           alt="icono de un corazon para guardar el producto en favoritos"
         />
       </Button>
