@@ -27,7 +27,7 @@ export const LoginForm = () => {
   }, [isAuthenticated, navigate]);
 
   return (
-    <div className="w-full flex flex-col items-center m-auto">
+    <div className="w-full flex flex-col items-center ">
       {LoginErrors.map((error, i) => (
         <ErrorMessage
           key={i}
@@ -38,7 +38,7 @@ export const LoginForm = () => {
 
       <form
         onSubmit={onSubmit}
-        className="w-full h-5/6 md:h-[600px] flex flex-col gap-4 p-4 items-center justify-center"
+        className="w-full h-5/6 md:h-[600px] flex flex-col gap-4 p-4 items-center justify-center "
       >
         <div className="w-full md:w-1/3 flex flex-col gap-2">
           <Label htmlFor="username" className="font-medium">

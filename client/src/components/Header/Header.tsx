@@ -8,7 +8,7 @@ export const Header = () => {
 
   return (
     <header className="w-full flex flex-col items-center justify-end px-4 h-[100px] shadow bg-white">
-      <div className="mt-[50px] mr-[50px] flex gap-8 absolute top-[-20px] left-[90px] md:top-0 md:right-0 ">
+      <div className="mt-[50px] mr-[50px] flex gap-8 absolute top-[-20px] right-[90px] md:top-0 md:right-0 ">
         {isAuthenticated ? <LogoutIcon /> : ""}
         <UserIcon />
         <CartIcon />

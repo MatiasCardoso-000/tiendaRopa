@@ -57,7 +57,7 @@ export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
                     )
                   )}
               </section>
-              <div className="w-full text-center">
+              <div className="w-full text-center md:text-right">
                 <p>
                   Ver más{" "}
                   <Link to={`/camisas-con-botones-para-hombres`}>
