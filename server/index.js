@@ -21,7 +21,7 @@ app.use(
 );
 app.use(cookieParser());
 
-app.use("/api", productsRoutes);
+app.use("/", productsRoutes);
 app.use("/auth", userRoutes);
 
 startServer();
