@@ -10,7 +10,7 @@ import cors from "cors";
 export const app = express();
 app.use(
   cors({
-    origin: ORIGIN,
+    origin: [ORIGIN, "https://tiendaropa-production-3d40.up.railway.app"],
     credentials: true,
     methods: ["GET", "POST"],
   })
