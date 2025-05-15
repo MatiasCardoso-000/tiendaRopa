@@ -7,7 +7,7 @@ export const Header = () => {
   const { isAuthenticated } = useAuth();
 
   return (
-    <header className="w-full flex flex-col items-center justify-end px-4 h-[100px] shadow  z-10 bg-white">
+    <header className="w-full flex flex-col items-center justify-end px-4 h-[100px] shadow   bg-white">
       <div className="mt-[50px] mr-[50px] flex gap-8 absolute top-0 right-0 ">
         {isAuthenticated ? <LogoutIcon /> : ""}
         <UserIcon />

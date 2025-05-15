@@ -22,6 +22,9 @@ export const register = async (req, res) => {
       role,
     });
 
+    if (email === createUser.email)
+      return res.status(400).json({ message:[ "El correo esta en uso"] });
+
     const savedUser = await createUser.save();
 
     const token = await createToken({ id: savedUser._id });
@@ -88,7 +91,7 @@ export const verifyToken = async (req, res) => {
     if (!userFound) {
       res.status(401).json({ message: "Unauthorized" });
     }
-    res.json(userFound)
+    res.json(userFound);
   });
 };
 

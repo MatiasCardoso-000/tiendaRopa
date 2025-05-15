@@ -22,7 +22,7 @@ export const Home = () => {
   const filteredProducts = filterProducts(products, valueInput);
 
   return (
-    <main className="w-full grid-cols-1 grid">
+    <main className="w-full">
       <Header />
       <section className="w-full flex flex-col items-center  gap-8 mt-20 p-2 md:px-4">
         <form className="w-full text-center" onSubmit={handleSubmit}>

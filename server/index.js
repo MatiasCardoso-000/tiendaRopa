@@ -13,8 +13,8 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://tiendaropa-production-3d40.up.railway.app/",
-      "https://tiendaropa-production-3d40.up.railway.app/auth/login",
-      "https://tiendaropa-production-3d40.up.railway.app/auth/registro",
+      "https://tiendaropa-production-3d40.up.railway.app/login",
+      "https://tiendaropa-production-3d40.up.railway.app/registro",
     ],
     credentials: true,
   })
