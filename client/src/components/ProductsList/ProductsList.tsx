@@ -9,13 +9,13 @@ interface Params {
 }
 
 export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
-  const { products, randomProduct, loading, searchQuery } = useProducts();
+  const { products, randomProduct, loading} = useProducts();
 
   return (
     <div className="w-full flex flex-col gap-8">
       {!loading ? (
         <>
-          {searchQuery && <h2>Resultado para: {searchQuery}</h2>}
+          
           <div className="w-full flex flex-col gap-14">
             {valueInput && (
               <div className="flex flex-col gap-8">
@@ -57,11 +57,11 @@ export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
                     )
                   )}
               </section>
-              <div className="w-full">
+              <div className="w-full text-center">
                 <p>
                   Ver más{" "}
                   <Link to={`/camisas-con-botones-para-hombres`}>
-                    <span className="font-semibold hover:underline mr-10 md:mr-52">
+                    <span className="font-semibold hover:underline  md:mr-52">
                       Camisas con botones para hombres
                     </span>
                   </Link>
@@ -87,12 +87,12 @@ export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
                     )
                   )}
               </section>
-              <div className="w-full">
+              <div className="w-full mb-10">
                 <p>
                   Ver más{" "}
                   <Link to={`/pantalones-para-hombres`}>
                     <span className="font-semibold hover:underline mr-10 md:mr-52">
-                      Pantalones hombres
+                      Pantalones hombre
                     </span>
                   </Link>
                 </p>
