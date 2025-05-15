@@ -4,7 +4,7 @@ import { MONGO_URL } from "../config/config.js";
 export const connectDB = async () => {
   try {
     console.log(mongoose.connection.readyState);
-    await mongoose.connect(MONGO_URL);
+    await mongoose.connect(MONGO_URL, { dbName: "tienda" });
     console.log(mongoose.connection.readyState);
   } catch (err) {
     console.log(err);
