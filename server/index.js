@@ -18,7 +18,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use("/", productsRoutes);
-app.use("/auth", userRoutes);
+app.use("/", userRoutes);
 
-startServer();
+startServer(); 
 connectDB();
