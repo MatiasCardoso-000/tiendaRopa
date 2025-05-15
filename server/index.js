@@ -10,15 +10,9 @@ import cors from "cors";
 export const app = express();
 app.use(
   cors({
-    origin: [
-      ORIGIN,
-      "https://tiendaropa-production-3d40.up.railway.app",
-      "https://tiendaropa-production-3d40.up.railway.app/login",
-      "https://tiendaropa-production-3d40.up.railway.app/registro",
-    ],
+    origin: ORIGIN,
     credentials: true,
     Methods: ["GET", "POST", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 app.use(cookieParser());
@@ -26,7 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
 app.use("/", productsRoutes);
-app.use("/", userRoutes);
+app.use("/auth", userRoutes);
 
 startServer(); 
 connectDB();

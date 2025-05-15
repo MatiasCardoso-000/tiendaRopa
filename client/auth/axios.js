@@ -1,9 +1,8 @@
 import axios from "axios";
 
-export const API_URL = "https://tiendaropa-production-3d40.up.railway.app" || "http://localhost:5000";
 
 const instance = axios.create({
-  baseURL: API_URL,
+  baseURL:"http://localhost:5000/auth",
   withCredentials: true,
 });
 
