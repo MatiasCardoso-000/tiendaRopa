@@ -1,5 +1,6 @@
 import { Router } from "express";
 import {
+  getAllUsers,
   login,
   logout,
   register,
@@ -14,3 +15,4 @@ router.post("/registro", validateSchema(registerSchema), register);
 router.post("/login", validateSchema(loginSchema), login);
 router.post("/logout", logout);
 router.get("/verify", verifyToken);
+router.get('/', getAllUsers)

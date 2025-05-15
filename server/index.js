@@ -7,7 +7,6 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 
 export const app = express();
-app.use(express.json());
 app.use(
   cors({
     origin: [
@@ -20,6 +19,7 @@ app.use(
   })
 );
 app.use(cookieParser());
+app.use(express.json());
 
 app.use("/", productsRoutes);
 app.use("/auth", userRoutes);

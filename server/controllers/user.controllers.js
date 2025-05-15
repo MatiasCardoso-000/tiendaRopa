@@ -24,12 +24,12 @@ export const register = async (req, res) => {
 
     if (email === createUser.email)
       return res.status(400).json({ message:[ "El correo esta en uso"] });
+    
 
     const savedUser = await createUser.save();
 
     const token = await createToken({ id: savedUser._id });
     res.cookie("token", token);
-
     res.json(savedUser);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -98,4 +98,16 @@ export const verifyToken = async (req, res) => {
 export const logout = (req, res) => {
   res.clearCookie("token");
   res.json({ message: "El usuario se desconecto con exito" });
+};
+
+
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find();
+    if(users.length === 0)
+    return res.status(404).json([])
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
