@@ -27,7 +27,7 @@ export const LoginForm = () => {
   }, [isAuthenticated, navigate]);
 
   return (
-    <div className="w-full flex flex-col items-center ">
+    <div className="w-full min-h-screen flex flex-col items-center justify-center">
       {LoginErrors.map((error, i) => (
         <ErrorMessage
           key={i}

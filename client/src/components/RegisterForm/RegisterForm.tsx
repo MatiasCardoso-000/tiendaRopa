@@ -20,7 +20,7 @@ export const RegisterForm = () => {
   });
 
   return (
-    <div className="w-full flex flex-col items-center gap-2 m-auto">
+    <div className="w-full min-h-screen flex flex-col items-center justify-center">
       {RegisterErrors.map((error, i) => (
         <ErrorMessage key={i} className="bg-red-400 text-white p-2" text={error}/>
       ))}

@@ -10,7 +10,7 @@ export const AppRouter = () => {
   const { isAuthenticated } = useAuth();
 
   return (
-    <main className="w-full min-h-screen flex flex-col justify-center">
+    <main className="w-full">
       <Routes>
         <Route
           element={
