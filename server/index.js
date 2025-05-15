@@ -12,7 +12,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://tiendaropa-production-3d40.up.railway.app/api/products",
+      "https://tiendaropa-production-3d40.up.railway.app/",
       "https://tiendaropa-production-3d40.up.railway.app/auth/login",
       "https://tiendaropa-production-3d40.up.railway.app/auth/registro",
     ],
