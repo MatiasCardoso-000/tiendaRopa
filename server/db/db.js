@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
-import { MONGO_URI } from "../config/config.js";
+import { MONGO_URL } from "../config/config.js";
 
 export const connectDB = async () => {
   try {
     console.log(mongoose.connection.readyState);
-    await mongoose.connect(MONGO_URI);
+    await mongoose.connect(MONGO_URL);
     console.log(mongoose.connection.readyState);
   } catch (err) {
     console.log(err);
