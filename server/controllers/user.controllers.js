@@ -22,14 +22,13 @@ export const register = async (req, res) => {
       role,
     });
 
-    if (email === createUser.email)
-      return res.status(400).json({ message: ["El correo esta en uso"] });
+    
 
     const savedUser = await createUser.save();
 
     const token = await createToken({ id: savedUser._id });
     res.cookie("token", token);
-    return res.json(savedUser);
+     res.json(savedUser);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

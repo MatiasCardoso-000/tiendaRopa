@@ -81,7 +81,7 @@ export const LoginForm = () => {
         </Button>
         <div className="w-1/3 text-right">
           <p>No tenes una cuenta?</p>{" "}
-          <Link to="/registro">
+          <Link to="/register">
             <span className="font-semibold hover:underline cursor-pointer">
               Registrarse
             </span>

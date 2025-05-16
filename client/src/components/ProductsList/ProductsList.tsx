@@ -9,58 +9,62 @@ interface Params {
 }
 
 export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
-  const { products, randomProduct, loading } = useProducts();
+  const { products,  loading } = useProducts();
 
   return (
     <div className="w-full flex flex-col gap-8 pb-8">
       {!loading ? (
         <>
-          <div className="w-full flex flex-col gap-14">
+          <div className="w-full flex flex-col gap-14 ">
             {valueInput && (
-              <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-8 ">
                 <h1 className="w-full md:text-2xl  md:w-max md:ml-14 text-center md:text-left">
                   Resultado busqueda:{" "}
                   <span className="font-semibold">{valueInput}</span>
                 </h1>
 
-                <section className="w-full md:w-3/4  grid grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] justify-center items-center gap-2 md:gap-4 m-auto ">
+                <section className="w-full  grid grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(200px,350px))] justify-center items-center gap-4  ">
                   {filteredProducts.map((product) => (
-                    <ProductItem product={product} />
+                      <ProductItem product={product}/>
                   ))}
                 </section>
               </div>
             )}
           </div>
 
-          <div className="flex flex-wrap  items-center justify-center gap-8 md:mt-10">
-            <div className="md:w-1/3  flex flex-col gap-4">
+          <div className="flex flex-wrap w-full items-center justify-center gap-8 md:mt-10">
+            <div className="flex flex-col gap-4">
               <h2 className="text-5xl font-bold">Remeras</h2>
-              <img
-                src="../../../products/Black and White Minimalist T-Shirt Mockup Instagram Post.png"
-                alt=""
-                className="w-full"
-              />
-              <Link to={"/products"}>
-                {" "}
-                <span className="w-max underline">Ver Más</span>
-              </Link>
+              <div className="w-full   flex flex-col gap-4 relative overflow-hidden group md:h-[600px]">
+                <img
+                  src="../../../products/Black and White Minimalist T-Shirt Mockup Instagram Post.png"
+                  alt=""
+                  className="w-full h-full  group-hover:scale-150 origin-center  object-cover transition-all duration-500 hover:scale-125"
+                />
+                <Link to={"/products"}>
+                  {" "}
+                  <span className="w-max underline">Ver Más</span>
+                </Link>
+              </div>
             </div>
-            <div className="md:w-1/3 flex flex-col gap-4">
+            <div className="flex flex-col gap-4">
               <h2 className="text-5xl font-bold">Packs</h2>
-              <img
-                src="../../../products/Black and White Modern T-Shirt Sale Facebook Post.png "
-                alt=""
-                className="w-full"
-              />
-              <Link to={"/products"}>
-                {" "}
-                <span className="w-max underline">Ver Más</span>
-              </Link>
+              <div className="w-full flex flex-col gap-4 relative overflow-hidden group md:h-[600px]">
+                <img
+                  src="../../../products/Black and White Modern T-Shirt Sale Facebook Post.png "
+                  alt=""
+                  className="w-full h-full  group-hover:scale-150 origin-center  object-cover transition-all duration-500 hover:scale-125"
+                />
+                <Link to={"/products"}>
+                  {" "}
+                  <span className="w-max underline">Ver Más</span>
+                </Link>
+              </div>
             </div>
           </div>
 
           <section className="w-full md:w-3/4  grid grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] justify-center items-center gap-2 md:gap-4 m-auto ">
-            {products.slice(0,4).map((product) => (
+            {products.slice(0, 4).map((product) => (
               <ProductItem product={product} />
             ))}
           </section>

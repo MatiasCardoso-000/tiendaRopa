@@ -31,7 +31,7 @@ export const Home = () => {
     <main
       className={
         isActive
-          ? "transition-all duration-700 ease-linear bg-gray-400 opacity-100"
+          ? "transition-all duration-700 ease-linear bg-gray-200 opacity-100"
           : "transition-all duration-700 ease-linear"
       }
     >
@@ -39,8 +39,8 @@ export const Home = () => {
       <aside
         className={` ${
           isActive
-            ? "transition-all duration-500 ease-in-out fixed top-0 left-0 bg-white min-h-screen md:w-[350px] border-r-4"
-            : "transition-all duration-1000 ease-in-out  absolute top-0 left-[-100%]  min-h-screen md:w-[350px] "
+            ? "w-full min-h-screen transition-all duration-700 ease-in-out fixed top-0 left-0 bg-white  md:w-[350px] border-r-4 z-10"
+            : "w-full  min-h-screen transition-all duration-1000 ease-in-out  absolute top-0 left-[-100%]  md:w-[350px] "
         }  `}
       >
         <ul className="flex flex-col">

@@ -18,14 +18,14 @@ export const ProductItem = ({ product}: Params) => {
 
   return (
     <div
-      className="w-4/4 h-[280px]  md:h-[350px] flex flex-col items-center justify-around m-auto  p-2"
-      key={product.id}
+      className="w-full h-[320px] flex flex-col items-center justify-around p-2"
+      key={product._id}
     >
       <h3 className="truncate w-3/4 font-semibold">{product.title}</h3>
       <img
         src={product.image}
         alt={product.title}
-        className="w-1/2 h-1/2 object-cover"
+        className="w-[100%] h-[150px] md:w-1/2 md:h-1/2 object-cover"
       />
       <span>$ {product.price}</span>
 

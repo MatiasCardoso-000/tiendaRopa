@@ -3,8 +3,8 @@ import { createProduct, getProductByName, getProducts } from "../controllers/pro
 
 export const router = express.Router();
 
-router.post("/", createProduct);
+router.post("/products", createProduct);
 
-router.get("/", getProducts);
+router.get("/products", getProducts);
 router.get('/product/search', getProductByName)
 

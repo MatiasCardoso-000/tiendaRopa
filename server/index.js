@@ -12,15 +12,16 @@ app.use(
   cors({
     origin: ORIGIN,
     credentials: true,
-    Methods: ["GET", "POST", "OPTIONS"],
+    methods: ["GET", "POST"],
+    
   })
 );
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
-app.use("/", productsRoutes);
+app.use("/api", productsRoutes);
 app.use("/auth", userRoutes);
 
-startServer(); 
 connectDB();
+startServer(); 
