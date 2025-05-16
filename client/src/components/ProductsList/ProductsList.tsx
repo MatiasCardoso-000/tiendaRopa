@@ -32,7 +32,7 @@ export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
             )}
           </div>
 
-          <div className="flex items-center justify-center gap-8 mt-10">
+          <div className="flex flex-wrap  items-center justify-center gap-8 md:mt-10">
             <div className="md:w-1/3  flex flex-col gap-4">
               <h2 className="text-5xl font-bold">Remeras</h2>
               <img
@@ -42,7 +42,7 @@ export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
               />
               <Link to={"/products"}>
                 {" "}
-                <span className="w-max hover:underline">Ver Más</span>
+                <span className="w-max underline">Ver Más</span>
               </Link>
             </div>
             <div className="md:w-1/3 flex flex-col gap-4">
@@ -54,7 +54,7 @@ export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
               />
               <Link to={"/products"}>
                 {" "}
-                <span className="w-max hover:underline">Ver Más</span>
+                <span className="w-max underline">Ver Más</span>
               </Link>
             </div>
           </div>

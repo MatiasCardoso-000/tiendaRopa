@@ -39,8 +39,8 @@ export const Home = () => {
       <aside
         className={` ${
           isActive
-            ? "transition-all duration-500 ease-in-out fixed top-0 left-0 bg-white min-h-screen w-[350px] border-r-4"
-            : "transition-all duration-1000 ease-in-out  absolute top-0 left-[-100%]  min-h-screen w-[350px] "
+            ? "transition-all duration-500 ease-in-out fixed top-0 left-0 bg-white min-h-screen md:w-[350px] border-r-4"
+            : "transition-all duration-1000 ease-in-out  absolute top-0 left-[-100%]  min-h-screen md:w-[350px] "
         }  `}
       >
         <ul className="flex flex-col">

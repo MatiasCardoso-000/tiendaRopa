@@ -10,7 +10,7 @@ export const Header = ({ showSideMenu }) => {
   return (
     <>
       <header className="w-full flex flex-col items-center justify-end px-4 h-[100px] shadow bg-zinc-950 relative text-zinc-50">
-        <div className="mt-[50px] mr-[50px] flex gap-8 absolute top-[-20px] right-[90px] md:top-0 md:right-0 ">
+        <div className="mt-[50px] mr-[20px] md:mr-[50px] flex gap-8 absolute top-0 right-0 ">
           {isAuthenticated ? (
             <LogoutIcon />
           ) : (
