@@ -18,14 +18,14 @@ export const ProductItem = ({ product}: Params) => {
 
   return (
     <div
-      className="w-4/4 h-[280px] md:w-[200px] md:h-[350px] flex flex-col items-center justify-around  border border-slate-100 m-auto shadow p-2"
+      className="w-4/4 h-[280px]  md:h-[350px] flex flex-col items-center justify-around m-auto  p-2"
       key={product.id}
     >
       <h3 className="truncate w-3/4 font-semibold">{product.title}</h3>
       <img
         src={product.image}
         alt={product.title}
-        className="w-1/4 h-1/4 object-cover"
+        className="w-1/2 h-1/2 object-cover"
       />
       <span>$ {product.price}</span>
 
@@ -34,7 +34,7 @@ export const ProductItem = ({ product}: Params) => {
           widthValue="10"
           onClick={() => saveFavoriteProduct(product)}
         />
-        <Button className="bg-zinc-700 text-zinc-50  text-[12px] md:p-2 cursor-pointer hover:bg-zinc-600">
+        <Button className="bg-zinc-950 text-zinc-50 font-semibold text-[12px] md:p-2 cursor-pointer hover:bg-zinc-600">
           Agregar al carrito
         </Button>
       </div>

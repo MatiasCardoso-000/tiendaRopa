@@ -10,7 +10,7 @@ export const AppRouter = () => {
   const { isAuthenticated } = useAuth();
 
   return (
-    <main className="w-full">
+   
       <Routes>
         <Route
           element={
@@ -27,6 +27,5 @@ export const AppRouter = () => {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
-    </main>
   );
 };

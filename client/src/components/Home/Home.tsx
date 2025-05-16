@@ -10,6 +10,12 @@ export const Home = () => {
   const { products } = useProducts();
   const [valueInput, setValue] = useState("");
 
+  const [isActive, setIsActive] = useState(false);
+
+  const showSideMenu = () => {
+    setIsActive(!isActive);
+  };
+
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setValue(value);
@@ -22,9 +28,47 @@ export const Home = () => {
   const filteredProducts = filterProducts(products, valueInput);
 
   return (
-    <div className="w-full">
-      <Header />
-      <section className="w-full flex flex-col items-center  gap-8 mt-20 p-2 md:px-4">
+    <main
+      className={
+        isActive
+          ? "transition-all duration-700 ease-linear bg-gray-400 opacity-100"
+          : "transition-all duration-700 ease-linear"
+      }
+    >
+      <Header showSideMenu={showSideMenu} />
+      <aside
+        className={` ${
+          isActive
+            ? "transition-all duration-500 ease-in-out fixed top-0 left-0 bg-white min-h-screen w-[350px] border-r-4"
+            : "transition-all duration-1000 ease-in-out  absolute top-0 left-[-100%]  min-h-screen w-[350px] "
+        }  `}
+      >
+        <ul className="flex flex-col">
+          <div className=" text-right text-2xl border-b-4 p-4 cursor-pointer">
+            <span className="w-max" onClick={showSideMenu}>
+              X
+            </span>
+          </div>
+          <div className="p-2">
+            <li className="text-4xl p-4 cursor-pointer border-b-4 ">
+              <h3 className="w-max hover:text-zinc-400 transition-all duration-500 font-bold">
+                Inicio
+              </h3>
+            </li>
+            <li className="text-4xl p-4 cursor-pointer border-b-4">
+              <h3 className="w-max hover:text-zinc-400 transition-all duration-500 font-bold">
+                Productos
+              </h3>
+            </li>
+            <li className="text-4xl p-4 cursor-pointer border-b-4 ">
+              <h3 className="w-max hover:text-zinc-400 transition-all duration-500 font-bold">
+                Contactos
+              </h3>
+            </li>
+          </div>
+        </ul>
+      </aside>
+      <section className="w-full flex flex-col items-center  gap-8 mt-4 p-2 md:px-4">
         <form className="w-full text-center" onSubmit={handleSubmit}>
           <Input
             type="text"
@@ -41,6 +85,6 @@ export const Home = () => {
       </section>
 
       <Footer />
-    </div>
+    </main>
   );
 };
