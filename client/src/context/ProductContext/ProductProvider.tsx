@@ -37,6 +37,8 @@ export const ProductProvider = ({ children }: Params) => {
     getProducts();
   }, [data]);
 
+
+
   return (
     <ProductContext.Provider
       value={{

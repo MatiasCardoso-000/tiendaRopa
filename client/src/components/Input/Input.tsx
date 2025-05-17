@@ -7,9 +7,10 @@ id:string,
 className:string,
 register?: ReturnType<UseFormRegister<FieldValues>>
 onChange? : EventHandler<React.ChangeEvent<HTMLInputElement>>
+accept?: string
 }
 
-export const Input = ({type,id,className,register,onChange}: Params) => {
+export const Input = ({type,id,className,register,onChange, accept}: Params) => {
   return (
     <input
     {...register}
@@ -17,6 +18,6 @@ export const Input = ({type,id,className,register,onChange}: Params) => {
     id={id}
     className={className}
     onChange={onChange}
-  />
+    accept={accept}  />
   )
 }

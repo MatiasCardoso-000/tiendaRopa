@@ -3,10 +3,8 @@ import { useAuth } from "../../hooks/useAuth";
 import { CartIcon } from "../CartIcon/CartIcon";
 import { UserIcon } from "../UserIcon/UserIcon";
 
-
-
 export const Header = ({ showSideMenu }) => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, user } = useAuth();
   const { logout } = useAuth();
 
   const handleClick = () => {
@@ -29,12 +27,21 @@ export const Header = ({ showSideMenu }) => {
               <span className="text-2xl cursor-pointer">Login</span>
             </Link>
           )}
-
           <Link to={"/"}>
             {" "}
             <span className="text-2xl cursor-pointer">Inicio</span>
           </Link>
-          {isAuthenticated ? <UserIcon /> : ""}
+          {isAuthenticated && user.role === "user" ? <UserIcon /> : ""}{" "}
+          {isAuthenticated && user.role === "admin" ? (
+            <div className="flex gap-4">
+              <UserIcon />
+             <Link to='/update'>
+              <span  className="text-2xl cursor-pointer hover:underline">Agregar/Modificar</span>
+             </Link>
+            </div>
+          ) : (
+            ""
+          )}
           <Link to={"/cart"}>
             {" "}
             <CartIcon />

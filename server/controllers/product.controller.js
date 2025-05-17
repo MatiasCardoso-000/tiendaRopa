@@ -8,7 +8,7 @@ export const createProduct = async (req, res) => {
   }
 
   try {
-    const product = await Product.create({
+    const newProduct = await Product.create({
       title,
       price,
       description,
@@ -16,7 +16,7 @@ export const createProduct = async (req, res) => {
       category,
     });
 
-    res.json(product);
+    res.json(newProduct);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -33,18 +33,31 @@ export const getProducts = async (req, res) => {
   }
 };
 
-export const getProductByName = async (req, res) => {
-  const title = req.query.q;
+export const getProductById = async (req, res) => {
+  const { id } = req.params;
 
-  const products = await Product.find();
+  const productFound = await Product.findById(id);
 
-  if (!products) {
-    return res.status(404).json({ message: "Product not found" });
+  res.json(productFound);
+};
+
+export const updateProduct = async (req, res) => {
+  const { id } = req.params;
+  const { title, image, price, description } = req.body;
+
+  try {
+    const productFound = await Product.findById(id);
+
+    const product = {
+      title,
+      image,
+      price,
+      description,
+    };
+
+    const updatedProduct = await productFound.updateOne(product);
+    res.json(updatedProduct);
+  } catch (error) {
+    res.status(500).json({ messge: error.message });
   }
-
-  const searchPrefix = products.filter((p) =>
-    p.title.toLocaleLowerCase().includes(title.toLocaleLowerCase())
-  );
-
-  res.json(searchPrefix);
 };

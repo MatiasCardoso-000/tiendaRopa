@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import type { User } from "../../types/user.interface";
 import { useAuth } from "../../hooks/useAuth";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { Label } from "../Label/Label";
 import { Input } from "../Input/Input";
 import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
@@ -13,7 +13,8 @@ export const RegisterForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<User>();
-  const { signUp, errors: RegisterErrors } = useAuth();
+  const { signUp, errors: RegisterErrors} = useAuth();
+
 
   const onSubmit = handleSubmit(async (values) => {
     signUp(values);
