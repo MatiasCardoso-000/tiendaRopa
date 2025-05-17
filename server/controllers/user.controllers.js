@@ -12,14 +12,14 @@ export const register = async (req, res) => {
     return;
   }
 
-  const userFound = await User.findOne({ email });
-
-  if (userFound) {
-    res.status(400).json({ message: ["El correo esta en uso"] });
-    return;
-  }
-
   try {
+    const userFound = await User.findOne({ email });
+
+    if (userFound) {
+      res.status(400).json({ message: ["El correo esta en uso"] });
+      return;
+    }
+
     const hashedPassword = await bcrypt.hash(password, 12);
 
     const createUser = new User({

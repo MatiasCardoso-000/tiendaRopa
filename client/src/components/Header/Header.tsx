@@ -23,7 +23,7 @@ export const Header = ({ showSideMenu }) => {
                 Salir
               </span>
             ) : (
-              <Link to={"/login"}>
+              <Link to={"/auth/login"}>
                 {" "}
                 <span className="text-sm md:text-2xl cursor-pointer">
                   Login

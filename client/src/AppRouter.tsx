@@ -24,8 +24,8 @@ export const AppRouter = () => {
       </Route>
       <Route path="/update" element={<UpdateProductPage />} />
       <Route path="/" element={<HomePage />} />
-      <Route path="/register" element={<RegisterPage />} />
-      <Route path="/login" element={<LoginPage />} />
+      <Route path="/auth/register" element={<RegisterPage />} />
+      <Route path="/auth/login" element={<LoginPage />} />
     </Routes>
   );
 };

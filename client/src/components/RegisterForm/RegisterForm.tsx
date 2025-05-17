@@ -85,7 +85,7 @@ export const RegisterForm = () => {
 
         <div className="w-1/3 text-right ">
           <p>Ya tenes cuenta?</p>{" "}
-          <Link to="/login">
+          <Link to="/auth/login">
             <span className="font-semibold hover:underline cursor-pointer">
               Ingresá
             </span>

@@ -15,7 +15,7 @@ app.use(
       "https://tiendaropa-production-3d40.up.railway.app"
     ],
     credentials: true,
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST", "PUT"],
   })
 );
 app.use(cookieParser());
