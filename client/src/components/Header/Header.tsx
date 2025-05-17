@@ -54,7 +54,7 @@ export const Header = ({ showSideMenu }) => {
             <div className=" flex justify-center items-center  h-auto w-max md:text-2xl cursor-pointer absolute top-[-60px] left-[30px] gap-8 md:top-[-70px] md:left-[20px] md:mt-[70px] md:ml-[50px]">
               <h3 onClick={showSideMenu}>Menú</h3>
 
-              <h2>{user.username.slice(0,1).toLocaleUpperCase() + user.username.slice(1)}</h2>
+              <h2>{user.username}</h2>
             </div>
           </div>
         </div>
