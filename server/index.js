@@ -19,7 +19,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
-app.use("/api", productsRoutes);
+app.use("/", productsRoutes);
 app.use("/auth", userRoutes);
 
 connectDB();

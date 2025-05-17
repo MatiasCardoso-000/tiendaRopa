@@ -14,7 +14,7 @@ export const ProductProvider = ({ children }: Params) => {
   const [loading, setLoading] = useState(true);
 
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-  const URL = `${BACKEND_URL}/products`;
+  const URL = `${BACKEND_URL}/`;
   const { data } = useFetch<Product[]>(URL);
 
   useEffect(() => {
