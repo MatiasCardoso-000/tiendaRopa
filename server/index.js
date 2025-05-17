@@ -13,14 +13,12 @@ app.use(
     origin: [
       ORIGIN,
       "https://tiendaropa-production-3d40.up.railway.app",
-      "https://tiendaropa-backend-production.up.railway.app",
     ],
     credentials: true,
   })
 );
 
 app.options("*", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:5000");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   res.setHeader("Access-Control-Allow-Private-Network", "true");
