@@ -10,16 +10,19 @@ import cors from "cors";
 export const app = express();
 app.use(
   cors({
-    origin: ORIGIN,
+    origin: [
+      ORIGIN,
+      "https://tiendaropa-production-3d40.up.railway.app"
+    ],
     credentials: true,
     methods: ["GET", "POST"],
   })
 );
 app.use(cookieParser());
-app.use(express.json({ limit: "1000mb" }));
-app.use(express.urlencoded({ limit: "1000mb", extended: true }));
+app.use(express.json({ limit: '1000mb' })); 
+app.use(express.urlencoded({ limit: '1000mb', extended: true }));
 app.use("/", productsRoutes);
 app.use("/auth", userRoutes);
 
 connectDB();
-startServer();
+startServer(); 
