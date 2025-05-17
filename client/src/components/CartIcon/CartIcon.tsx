@@ -5,7 +5,7 @@ export const CartIcon = () => {
     <div>
       <Button className="w-[30px] cursor-pointer">
         <img
-          className="w-[30px]"
+          className="w-[20px] md:w-[30px]"
           src="../../../iconos/icons8-bolsa-de-compras-50.png"
           alt="icono carrito"
         />

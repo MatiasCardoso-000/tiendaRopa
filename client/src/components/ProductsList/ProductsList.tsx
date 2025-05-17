@@ -9,10 +9,10 @@ interface Params {
 }
 
 export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
-  const { products,  loading } = useProducts();
+  const { products, loading } = useProducts();
 
   return (
-    <div className="w-full flex flex-col gap-8 pb-8">
+    <div className="w-full flex flex-col gap-8 pb-8 items-center">
       {!loading ? (
         <>
           <div className="w-full flex flex-col gap-14 ">
@@ -25,7 +25,7 @@ export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
 
                 <section className="w-full  grid grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(200px,350px))] justify-center items-center gap-4  ">
                   {filteredProducts.map((product) => (
-                      <ProductItem product={product}/>
+                    <ProductItem product={product} />
                   ))}
                 </section>
               </div>
@@ -62,12 +62,14 @@ export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
               </div>
             </div>
           </div>
-
-          <section className="w-full md:w-3/4  grid grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] justify-center items-center gap-2 md:gap-4 m-auto ">
-            {products.slice(0, 4).map((product) => (
-              <ProductItem product={product} />
-            ))}
-          </section>
+          <div className="flex flex-col w-full gap-14 ">
+            <h3 className="w-1/3 text-3xl font-bold text-center ">Remeras</h3>
+            <section className="w-full md:w-3/4  grid grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(300px,400px))] justify-center gap-2 m-auto ">
+              {products.map((product) => (
+                <ProductItem product={product} />
+              ))}
+            </section>
+          </div>
         </>
       ) : (
         <div className="w-full h-screen flex  justify-center">

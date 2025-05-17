@@ -40,7 +40,7 @@ export const Home = () => {
         className={` ${
           isActive
             ? "w-full min-h-screen transition-all duration-700 ease-in-out fixed top-0 left-0 bg-white  md:w-[350px] border-r-4 z-10"
-            : "w-full  min-h-screen transition-all duration-1000 ease-in-out  absolute top-0 left-[-100%]  md:w-[350px] "
+            : "w-full  min-h-screen transition-all duration-1000 ease-in-out  absolute top-0 left-[-100%]  md:w-[350px] z-10"
         }  `}
       >
         <ul className="flex flex-col">

@@ -18,7 +18,7 @@ export const ProductItem = ({ product}: Params) => {
 
   return (
     <div
-      className="w-full md:w-1/4 h-[320px] flex flex-col items-center text-center justify-around p-2 border"
+      className="w-full md:w-[350px] h-[320px] flex flex-col items-center text-center justify-around p-2 shadow  m-auto"
       key={product._id}
     >
       <h3 className="truncate w-3/4 font-semibold">{product.title}</h3>
