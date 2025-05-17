@@ -10,19 +10,24 @@ import cors from "cors";
 export const app = express();
 app.use(
   cors({
-    origin: [
-      ORIGIN,
-      "https://tiendaropa-production-3d40.up.railway.app"
-    ],
+    origin: [ORIGIN, "https://tiendaropa-production-3d40.up.railway.app"],
     credentials: true,
-    methods: ["GET", "POST", "PUT"],
   })
 );
+
+app.options("*", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:5000");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Private-Network", "true");
+  res.sendStatus(204);
+});
+
 app.use(cookieParser());
-app.use(express.json({ limit: '1000mb' })); 
-app.use(express.urlencoded({ limit: '1000mb', extended: true }));
+app.use(express.json({ limit: "1000mb" }));
+app.use(express.urlencoded({ limit: "1000mb", extended: true }));
 app.use("/", productsRoutes);
 app.use("/auth", userRoutes);
 
 connectDB();
-startServer(); 
+startServer();
