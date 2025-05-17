@@ -12,9 +12,7 @@ app.use(
   cors({
     origin: [
       ORIGIN,
-      "https://tiendaropa-production-3d40.up.railway.app/",
-      "https://tiendaropa-production-3d40.up.railway.app/login",
-      "https://tiendaropa-production-3d40.up.railway.app/register",
+      "https://tiendaropa-production-3d40.up.railway.app"
     ],
     credentials: true,
     methods: ["GET", "POST"],
