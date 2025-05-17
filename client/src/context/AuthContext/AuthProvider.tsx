@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }: Params) => {
       }
 
       setUser(res.data);
-    } catch (error: any){
+    } catch (error: any) {
       setErrors(error.response.data.message);
     }
   };
