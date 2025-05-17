@@ -8,7 +8,14 @@ export const register = async (req, res) => {
   const { username, email, password, role } = req.body;
 
   if (!username || !email || !password) {
-    res.status(400).json({ message: "Todos los campos son requeridos" });
+    res.status(400).json({ message: ["Todos los campos son requeridos"] });
+    return;
+  }
+
+  const userFound = await User.findOne({ email });
+
+  if (userFound) {
+    res.status(400).json({ message: ["El correo esta en uso"] });
     return;
   }
 
