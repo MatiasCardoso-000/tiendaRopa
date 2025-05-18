@@ -19,7 +19,8 @@ app.use(
       "X-Requested-With",
       "X-User-Data",
       "Authorization",
-      "Content-Type"
+      "Content-Type",
+      "Access-Control-Allow-Origin",
     ],
   })
 );
