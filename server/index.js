@@ -9,7 +9,7 @@ import cors from "cors";
 
 export const app = express();
 
-process.loadEnvFile()
+process.loadEnvFile(".env");
 
 app.use(
   cors({
