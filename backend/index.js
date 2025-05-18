@@ -11,7 +11,7 @@ export const app = express();
 
 app.use(
   cors({
-    origin: [ORIGIN, "https://tiendaropa-production-3d40.up.railway.app"],
+    origin: [ORIGIN, "https://tiendaropa-production-3d40.up.railway.app/api"],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: [
