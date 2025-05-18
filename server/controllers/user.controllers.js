@@ -7,6 +7,12 @@ import jwt from "jsonwebtoken";
 export const register = async (req, res) => {
   const { username, email, password, role } = req.body;
 
+  const userFound = await User.findOne({ username });
+
+  if (userFound) {
+    res.status(400).json({ message: ["El usuario ya existe"] });
+    return;
+  }
 
   if (!username || !email || !password) {
     res.status(400).json({ message: ["Todos los campos son requeridos"] });
@@ -24,10 +30,15 @@ export const register = async (req, res) => {
     });
 
     const savedUser = await createUser.save();
-
+    
     const token = await createToken({ id: savedUser._id });
-    res.cookie("token", token);
-    return res.json(savedUser);
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "Strict",
+    });
+
+    res.json(savedUser);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

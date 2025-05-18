@@ -8,29 +8,31 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 
 export const app = express();
+
+process.loadEnvFile()
+
 app.use(
   cors({
     origin: [ORIGIN, "https://tiendaropa-production-3d40.up.railway.app"],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: [
-      "Access-Control-Allow-Headers",
-      "Access-Control-Allow-Private-Network",
-      "Access-Control-Allow-Credentials",
       "X-CSRF-Token",
       "X-Requested-With",
+      "X-User-Data",
       "Authorization",
-      "Content-Type",
+      "Content-Type"
     ],
   })
 );
 
+app.disable("X-Powered-By");
 app.use(cookieParser());
-app.use(express.json({ limit: "1000mb" }));
-app.use(express.urlencoded({ limit: "1000mb", extended: true }));
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
-app.use("/", productsRoutes);
-app.use("/auth", userRoutes);
+app.use("/api/products", productsRoutes);
+app.use("/api", userRoutes);
 
 connectDB();
 startServer();
