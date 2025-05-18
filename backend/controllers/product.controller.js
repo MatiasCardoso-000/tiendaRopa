@@ -33,13 +33,13 @@ export const getProducts = async (req, res) => {
   }
 };
 
-export const getProductById = async (req, res) => {
-  const { id } = req.params;
+// export const getProductById = async (req, res) => {
+//   const { id } = req.params;
 
-  const productFound = await Product.findById(id);
+//   const productFound = await Product.findById(id);
 
-  res.json(productFound);
-};
+//   res.json(productFound);
+// };
 
 export const updateProduct = async (req, res) => {
   const { id } = req.params;

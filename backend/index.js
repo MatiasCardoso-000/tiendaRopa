@@ -9,8 +9,6 @@ import cors from "cors";
 
 export const app = express();
 
-process.loadEnvFile(".env");
-
 app.use(
   cors({
     origin: [ORIGIN, "https://tiendaropa-production-3d40.up.railway.app"],
@@ -31,7 +29,7 @@ app.use(cookieParser());
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
-app.use("/api/products", productsRoutes);
+app.use("/api", productsRoutes);
 app.use("/api", userRoutes);
 
 connectDB();
