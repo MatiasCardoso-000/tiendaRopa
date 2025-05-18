@@ -17,9 +17,10 @@ app.use(
       "Access-Control-Allow-Headers",
       "Access-Control-Allow-Private-Network",
       "Access-Control-Allow-Credentials",
+      "X-CSRF-Token",
+      "X-Requested-With",
       "Authorization",
       "Content-Type",
-
     ],
   })
 );
