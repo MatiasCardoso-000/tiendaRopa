@@ -6,6 +6,7 @@ import { ProtectedRoutes } from "./components/ProtectedRoutes/ProtectedRoutes";
 import { useAuth } from "./hooks/useAuth";
 import { HomePage } from "./pages/HomePage/HomePage";
 import { UpdateProductPage } from "./pages/UpdateProductPage/UpdateProductPage";
+import { ContactPage } from "./pages/ContactPage/ContactPage";
 
 export const AppRouter = () => {
   const { isAuthenticated } = useAuth();
@@ -26,6 +27,7 @@ export const AppRouter = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/auth/register" element={<RegisterPage />} />
       <Route path="/auth/login" element={<LoginPage />} />
+      <Route path="/contacto" element={<ContactPage />} />
     </Routes>
   );
 };

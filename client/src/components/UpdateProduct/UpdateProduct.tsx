@@ -94,7 +94,7 @@ export const UpdateProduct = () => {
   });
 
   const UpdateProductRequest = async (product: Product) => {
-    return await axios.put(`http://localhost:5000/${product._id}`, product);
+    return await axios.put(`http://localhost:8080/${product._id}`, product);
   };
 
   const UpdateProduct = async (product: Product) => {};

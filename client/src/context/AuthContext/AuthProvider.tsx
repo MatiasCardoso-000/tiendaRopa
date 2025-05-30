@@ -21,11 +21,9 @@ export const AuthProvider = ({ children }: Params) => {
   const signUp = async (user: User) => {
     try {
       const res = await registerRequest(user);
-
       if (res.status !== 200) {
         throw new Error("Hubo un error al registrarse");
       }
-
       setUser(res.data);
     } catch (error: any) {
       setErrors(error.response.data.message);
@@ -35,11 +33,9 @@ export const AuthProvider = ({ children }: Params) => {
   const signIn = async (user: User) => {
     try {
       const res = await loginRequest(user);
-
       if (res.status !== 200) {
         throw new Error("Hubo un error al iniciar sesion");
       }
-
       setUser(res.data);
       setIsAuthenticated(true);
     } catch (error: any) {

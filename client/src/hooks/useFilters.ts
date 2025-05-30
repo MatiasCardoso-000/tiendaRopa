@@ -1,11 +1,14 @@
 import { Product } from "../types/product.interface";
 
+export const useFilters = () => {
+  const filterProducts = (products: Product[], value: string) => {
+    if (!products) return [];
 
-export const filterProducts = (products:Product[],value:string) => {
-  
-    return products.filter((p:Product) => {
-      if (p.title.toLowerCase().includes(value.toLowerCase())) return p;
+    return products.filter((product) => {
+      return product.title.toLowerCase().includes(value.toLowerCase());
     });
+  };
 
 
-}
+  return { filterProducts };
+};

@@ -27,7 +27,7 @@ export const LoginForm = () => {
   }, [isAuthenticated, navigate]);
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-center">
+    <div className="w-full min-h-screen flex  items-center justify-around bg-zinc-950 ">
       {LoginErrors.map((error, i) => (
         <ErrorMessage
           key={i}
@@ -35,51 +35,57 @@ export const LoginForm = () => {
           text={error}
         />
       ))}
-
+      <h1 className="font-bold text-8xl text-zinc-50 mt-80 tracking-widest">
+        RIOT
+      </h1>
       <form
         onSubmit={onSubmit}
-        className="w-full h-5/6 md:h-[600px] flex flex-col gap-4 p-4 items-center justify-center "
+        className="w-full md:w-1/4 h-5/6 md:h-[500px] flex flex-col gap-4 p-4 items-center justify-around bg-zinc-50"
       >
-        <div className="w-full md:w-1/3 flex flex-col gap-2">
-          <Label htmlFor="username" className="font-medium">
-            Nombre de usuario
-          </Label>
-          <Input
-            type="text"
-            id="username"
-            className="w-full border border-slate-200 p-2 rounded focus:outline-none focus:ring-2 focus:ring-zinc-800"
-            register={{ ...register("username", { required: true }) }}
-          />
-          {errors.username && (
-            <ErrorMessage
-              text="Nombre de usuario requerido"
-              className="text-red-500 text-sm"
+        <div className="w-full">
+          <h3 className="font-bold text-3xl mb-10">INGRESAR</h3>
+          <div className="w-full  flex flex-col gap-2">
+            <Label htmlFor="username" className="font-medium">
+              Nombre de usuario
+            </Label>
+            <Input
+              type="text"
+              id="username"
+              className="w-full border border-slate-200 p-2 rounded focus:outline-none focus:ring-2 focus:ring-zinc-800"
+              register={{ ...register("username", { required: true }) }}
             />
-          )}
+            {errors.username && (
+              <ErrorMessage
+                text="Nombre de usuario requerido"
+                className="text-red-500 text-sm"
+              />
+            )}
+          </div>
+
+          <div className="w-full  flex flex-col gap-2">
+            <Label htmlFor="password" className="font-medium">
+              Contraseña
+            </Label>
+            <Input
+              type="password"
+              id="password"
+              className="w-full border border-slate-200 p-2 rounded focus:outline-none focus:ring-2 focus:ring-zinc-800"
+              register={{ ...register("password", { required: true }) }}
+            />
+            {errors.password && (
+              <ErrorMessage
+                text="Contraseña requerida"
+                className="text-red-500 text-sm"
+              />
+            )}
+          </div>
+
+          <Button className="w-full  bg-zinc-800 text-slate-50 mt-8 font-semibold p-2 hover:bg-slate-600 cursor-pointer mt- rounded transition-colors">
+            Ingresar
+          </Button>
         </div>
 
-        <div className="w-full md:w-1/3 flex flex-col gap-2">
-          <Label htmlFor="password" className="font-medium">
-            Contraseña
-          </Label>
-          <Input
-            type="password"
-            id="password"
-            className="w-full border border-slate-200 p-2 rounded focus:outline-none focus:ring-2 focus:ring-zinc-800"
-            register={{ ...register("password", { required: true }) }}
-          />
-          {errors.password && (
-            <ErrorMessage
-              text="Contraseña requerida"
-              className="text-red-500 text-sm"
-            />
-          )}
-        </div>
-
-        <Button className="w-full md:w-1/3 bg-zinc-800 text-slate-50 font-semibold p-2 hover:bg-slate-600 cursor-pointer mt-12 rounded transition-colors">
-          Ingresar
-        </Button>
-        <div className="w-1/3 text-right">
+        <div className="w-full text-right">
           <p>No tenes una cuenta?</p>{" "}
           <Link to="/auth/register">
             <span className="font-semibold hover:underline cursor-pointer">

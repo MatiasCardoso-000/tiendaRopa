@@ -1,7 +1,7 @@
 import Product from "../models/product.model.js";
 
 export const createProduct = async (req, res) => {
-  const { title, price, description,image, category } = req.body;
+  const { title, price, description, image, category } = req.body;
 
   if (!title || !price || !description || !image || !category) {
     return res.status(400).json({ message: "All fields are required" });
@@ -33,13 +33,21 @@ export const getProducts = async (req, res) => {
   }
 };
 
-// export const getProductById = async (req, res) => {
-//   const { id } = req.params;
-
-//   const productFound = await Product.findById(id);
-
-//   res.json(productFound);
-// };
+export const searchProduct = async (req, res) => {
+  try {
+    const { product } = req.query;
+    if (!product) {
+      return res
+        .status(400)
+        .json({ message: "Product query parameter is required" });
+    }
+    console.log(product);
+    
+    res.json(product);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
 export const updateProduct = async (req, res) => {
   const { id } = req.params;

@@ -3,12 +3,20 @@ import { Button } from "../Button/Button";
 export const CartIcon = () => {
   return (
     <div>
-      <Button className="w-[30px] cursor-pointer">
-        <img
-          className="w-[20px] md:w-[30px]"
-          src="../../../iconos/icons8-bolsa-de-compras-50.png"
-          alt="icono carrito"
-        />
+      <Button className="cursor-pointer">
+        <svg
+          className="w-8 h-8 mt-2 hover:text-gray-700"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 4h13M9 21a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2z"
+          />
+        </svg>
       </Button>
     </div>
   );

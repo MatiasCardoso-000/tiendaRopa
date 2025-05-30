@@ -7,6 +7,7 @@ import jwt from "jsonwebtoken";
 export const register = async (req, res) => {
   const { username, email, password, role } = req.body;
 
+
   const userFound = await User.findOne({ username });
 
   if (userFound) {
@@ -66,7 +67,7 @@ export const login = async (req, res) => {
     }
 
     const token = await createToken({ id: userFound._id });
-    res.cookie("token", token)
+    res.cookie("token", token )
     
     res.json({
       username: userFound.username,

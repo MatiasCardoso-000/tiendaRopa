@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 import { useProducts } from "../../hooks/useProducts";
-import { Product } from "../../types/product.interface";
 import { ProductItem } from "../Productitem/ProductItem";
+import { useFilters } from "../../hooks/useFilters";
+import { useSearch } from "../../hooks/useSearch";
 
-interface Params {
-  filteredProducts: Product[];
-  valueInput: string;
-}
-
-export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
+export const ProductsList = () => {
   const { products, loading } = useProducts();
+  const { filterProducts } = useFilters();
+  const { valueInput } = useSearch();
+  const filteredProducts = filterProducts(products, valueInput);
+
+    console.log(valueInput);
 
   return (
     <div className="w-full flex flex-col gap-8 pb-8 items-center">
@@ -20,7 +21,7 @@ export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
               <div className="flex flex-col gap-8 ">
                 <h1 className="w-full md:text-2xl  md:w-max md:ml-14 text-center md:text-left">
                   Resultado busqueda:{" "}
-                  <span className="font-semibold">{valueInput}</span>
+                  <span className="font-semibold">{filterProducts.length}</span>
                 </h1>
 
                 <section className="w-full  grid grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(200px,350px))] justify-center items-center gap-4  ">
@@ -37,9 +38,9 @@ export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
               <h2 className="text-5xl font-bold">Remeras</h2>
               <div className="w-full   flex flex-col gap-4 relative overflow-hidden group md:h-[600px]">
                 <img
-                  src="../../../products/Black and White Minimalist T-Shirt Mockup Instagram Post.png"
+                  src="../../../products/remeras-banner.png"
                   alt=""
-                  className="w-full h-full  group-hover:scale-150 origin-center  object-cover transition-all duration-500 hover:scale-125"
+                  className="w-full group-hover:scale-150 origin-center  object-cover transition-all duration-500 hover:scale-125"
                 />
                 <Link to={"/products"}>
                   {" "}
@@ -51,9 +52,9 @@ export const ProductsList = ({ filteredProducts, valueInput }: Params) => {
               <h2 className="text-5xl font-bold">Packs</h2>
               <div className="w-full flex flex-col gap-4 relative overflow-hidden group md:h-[600px]">
                 <img
-                  src="../../../products/Black and White Modern T-Shirt Sale Facebook Post.png "
+                  src="../../../products/packs-banner.png"
                   alt=""
-                  className="w-full h-full  group-hover:scale-150 origin-center  object-cover transition-all duration-500 hover:scale-125"
+                  className="w-full  group-hover:scale-150 origin-center  object-cover transition-all duration-500 hover:scale-125"
                 />
                 <Link to={"/products"}>
                   {" "}
