@@ -19,6 +19,7 @@ export const LoginForm = () => {
   const navigate = useNavigate();
 
   const onSubmit = handleSubmit(async (values) => {
+    console.log(values);
     signIn(values);
   });
 
@@ -40,7 +41,7 @@ export const LoginForm = () => {
       </h1>
       <form
         onSubmit={onSubmit}
-        className="w-full md:w-1/4 h-5/6 md:h-[500px] flex flex-col gap-4 p-4 items-center justify-around bg-zinc-50"
+        className="w-full md:w-1/4 h-5/6 md:h-[550px] flex flex-col gap-4 p-4 items-center justify-around bg-zinc-50"
       >
         <div className="w-full">
           <h3 className="font-bold text-3xl mb-10">INGRESAR</h3>
@@ -49,10 +50,10 @@ export const LoginForm = () => {
               Nombre de usuario
             </Label>
             <Input
+            { ...register("username", { required: true }) }
               type="text"
               id="username"
               className="w-full border border-slate-200 p-2 rounded focus:outline-none focus:ring-2 focus:ring-zinc-800"
-              register={{ ...register("username", { required: true }) }}
             />
             {errors.username && (
               <ErrorMessage
@@ -67,10 +68,10 @@ export const LoginForm = () => {
               Contraseña
             </Label>
             <Input
+            { ...register("password", { required: true }) }
               type="password"
               id="password"
               className="w-full border border-slate-200 p-2 rounded focus:outline-none focus:ring-2 focus:ring-zinc-800"
-              register={{ ...register("password", { required: true }) }}
             />
             {errors.password && (
               <ErrorMessage

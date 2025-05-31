@@ -33,7 +33,7 @@ export const RegisterForm = () => {
       </h1>
       <form
         onSubmit={onSubmit}
-        className="w-full  h-5/6  md:w-1/4 md:h-[500px] flex flex-col gap-4 p-4 items-center justify-around bg-zinc-50"
+        className="w-full  h-5/6  md:w-1/4 md:h-[550px] flex flex-col gap-4 p-4 items-center justify-around bg-zinc-50"
       >
         <div className="w-full">
           <h3 className="font-bold text-3xl mb-10">REGISTRO</h3>
@@ -42,7 +42,7 @@ export const RegisterForm = () => {
               Nombre de usuario
             </Label>
             <Input
-              register={{ ...register("username", { required: true }) }}
+              {...register("username", { required: true })}
               type="text"
               id="username"
               className="w-full  border border-slate-200 p-2"
@@ -59,7 +59,7 @@ export const RegisterForm = () => {
               Correo electrónico
             </Label>
             <Input
-              register={{ ...register("email", { required: true }) }}
+              {...register("email", { required: true })}
               type="email"
               id="email"
               className="w-full  border border-slate-200  p-2"
@@ -77,7 +77,7 @@ export const RegisterForm = () => {
               Contraseña
             </Label>
             <Input
-              register={{ ...register("password", { required: true }) }}
+              {...register("password", { required: true })}
               type="password"
               id="password"
               className="w-full  border border-slate-200  p-2"

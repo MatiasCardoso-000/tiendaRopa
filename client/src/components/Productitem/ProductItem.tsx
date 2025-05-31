@@ -3,23 +3,24 @@ import { useAuth } from "../../hooks/useAuth";
 import { useProducts } from "../../hooks/useProducts";
 import { Product } from "../../types/product.interface";
 import { Button } from "../Button/Button";
-import { FavoriteIconCard } from "../FavoriteIconCard/FavoriteIconCard";
+import { useState } from "react";
+import { FavoriteIcon, FavoriteIconBorder } from "../Icons/Icons";
 
 interface Params {
   product: Product;
 }
 
 export const ProductItem = ({ product }: Params) => {
-  const { setFavoriteProduct, favoriteProduct } = useProducts();
+  const { setFavoriteProduct } = useProducts();
+  const [isActive, setIsActive] = useState(false);
   const { user } = useAuth();
+
   const saveFavoriteProduct = (product: Product) => {
-    if (!favoriteProduct.includes(product)) {
+    setIsActive(!isActive);
+    if (isActive) {
       setFavoriteProduct((prevState) => [...prevState, product]);
     }
   };
-
-
-  
 
   const handleUpdateProduct = (id: string) => {
     // Aquí puedes implementar la lógica para actualizar el producto
@@ -42,10 +43,7 @@ export const ProductItem = ({ product }: Params) => {
           <span>$ {product.price}</span>
 
           <div className="flex items-center gap-4">
-            <FavoriteIconCard
-              widthValue="10"
-              onClick={() => saveFavoriteProduct(product)}
-            />
+           
             <Button
               className="bg-zinc-950 text-zinc-50 font-semibold text-[12px] md:p-2 cursor-pointer hover:bg-zinc-600"
               onClick={() => handleUpdateProduct(product._id)}
@@ -68,10 +66,13 @@ export const ProductItem = ({ product }: Params) => {
           <span>$ {product.price}</span>
 
           <div className="flex items-center gap-4">
-            <FavoriteIconCard
-              widthValue="10"
-              onClick={() => saveFavoriteProduct(product)}
-            />
+            {!isActive ? (
+                <FavoriteIconBorder
+                  onClick={() => saveFavoriteProduct(product)}
+                />
+            ) : (
+                <FavoriteIcon onClick={() => saveFavoriteProduct(product)} />
+            )}
             <Button className="bg-zinc-950 text-zinc-50 font-semibold text-[12px] md:p-2 cursor-pointer hover:bg-zinc-600">
               Agregar al carrito
             </Button>

@@ -5,7 +5,6 @@ import { ProductProvider } from "./context/ProductContext/ProductProvider";
 
 export const AppHookContainer = () => {
   return (
-    <>
       <BrowserRouter>
         <AuthProvider>
           <ProductProvider>
@@ -13,6 +12,5 @@ export const AppHookContainer = () => {
           </ProductProvider>
         </AuthProvider>
       </BrowserRouter>
-    </>
   );
 };

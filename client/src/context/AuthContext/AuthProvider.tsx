@@ -36,7 +36,10 @@ export const AuthProvider = ({ children }: Params) => {
       if (res.status !== 200) {
         throw new Error("Hubo un error al iniciar sesion");
       }
+      console.log(res);
+      
       setUser(res.data);
+      
       setIsAuthenticated(true);
     } catch (error: any) {
       console.error(error);
