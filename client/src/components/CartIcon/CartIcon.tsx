@@ -2,10 +2,9 @@ import { Button } from "../Button/Button";
 
 export const CartIcon = () => {
   return (
-    <div>
       <Button className="cursor-pointer">
         <svg
-          className="w-8 h-8 mt-2 hover:text-gray-700"
+          className="w-6 h-6 md:w-8 md:h-8  hover:text-gray-700"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -18,6 +17,5 @@ export const CartIcon = () => {
           />
         </svg>
       </Button>
-    </div>
   );
 };

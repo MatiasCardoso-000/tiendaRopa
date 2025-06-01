@@ -1,5 +1,5 @@
-import { UpdateProduct } from "../../components/UpdateProduct/UpdateProduct"
+import { AdminPanel } from "../../components/AdminPanel/AdminPanel"
 
 export const UpdateProductPage = () =>{
-  return <UpdateProduct/>
+  return <AdminPanel/>
 }

@@ -28,7 +28,7 @@ export const LoginForm = () => {
   }, [isAuthenticated, navigate]);
 
   return (
-    <div className="w-full min-h-screen flex  items-center justify-around bg-zinc-950 ">
+    <div className="w-full min-h-screen flex flex-wrap justify-center md:items-center md:justify-around bg-zinc-950 ">
       {LoginErrors.map((error, i) => (
         <ErrorMessage
           key={i}
@@ -36,12 +36,12 @@ export const LoginForm = () => {
           text={error}
         />
       ))}
-      <h1 className="font-bold text-8xl text-zinc-50 mt-80 tracking-widest">
+      <h1 className="font-bold text-4xl md:text-8xl p-2 text-zinc-50 md:mt-80 tracking-widest">
         RIOT
       </h1>
       <form
         onSubmit={onSubmit}
-        className="w-full md:w-1/4 h-5/6 md:h-[550px] flex flex-col gap-4 p-4 items-center justify-around bg-zinc-50"
+        className="w-full h-screen  md:w-1/4 md:h-[550px] flex flex-col gap-4 p-4 items-center justify-around bg-zinc-50"
       >
         <div className="w-full">
           <h3 className="font-bold text-3xl mb-10">INGRESAR</h3>

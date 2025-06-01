@@ -10,7 +10,7 @@ export const ProductsList = () => {
   const filteredProducts = filterProducts(products, valueInput);
 
   return (
-    <div className="w-full flex flex-col gap-8 pb-8 items-center">
+    <div className="w-full flex flex-col gap-8 py-4 px-2 items-center bg-[#e6e6e0]">
       {!loading ? (
         <>
           <div className="w-full flex flex-col gap-14 ">
